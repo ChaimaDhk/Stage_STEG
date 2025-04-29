@@ -1,0 +1,66 @@
+<app-nav></app-nav>
+<div class="container-fluid">
+  <div class="row content">
+<div class="col-sm-3 sidenav">
+<app-nav-side></app-nav-side>
+</div>
+      <div class="col-sm-4">
+      
+        <form id="form1"  class="form-group main-contact-form col-md-12 col-lg-12  wow fadeIn">
+          <h2 class="titre">AFFICHER JOURNALISTE:<br> </h2>
+          <img [src]=journaliste.img alt="" style="width: 50%;">
+          <h4 class="text">IDENIFICATION: </h4>
+         <h5><Strong> Situation : </Strong>{{journaliste.Situation}}</h5>
+          <h5><Strong> Nom & Prenom: </Strong>{{journaliste.NomPrenom}}</h5>
+          <h5> <Strong>Anniversaire: </Strong>{{journaliste.Anniversaire}}</h5>
+         <h5> <Strong>Médias : </Strong>{{journaliste.Medias}}</h5>
+          <h5><Strong> Support : </Strong>{{journaliste.Support}}  </h5>
+         <h5>  <Strong>Service : </Strong>{{journaliste.Service}} </h5>
+         <h5> <Strong> Qualification : </Strong>{{journaliste.Qualification}}</h5>
+        <h5>  <Strong>Spécialité : </Strong> {{journaliste.Specialite}} </h5>
+         <h5> <Strong> Rubrique :  </Strong>{{journaliste.Rubrique}}</h5>
+         <h5> <Strong> Formation Académique : </Strong>{{journaliste.Formation}} </h5>
+              <!-- <div class="form-group">
+                <label for="exampleFormControlFile1">Photo de profile</label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1" formControlName="Anniversaire" 
+                [ngClass]="{ 'is-invalid': submitted && f.Anniversaire.errors }" [(ngModel)]="journaliste.Anniversaire">
+              </div> -->
+              <h4 class="text">RELATION AU BUREAU DE PRESSE: </h4>
+              <h5><Strong>Appréciation: </Strong>{{journaliste.Appreciation}}</h5>
+              <h5><Strong>Couvertures: </Strong>{{journaliste.Couvertures}}</h5>
+              <h4 class="text">INFOS DIVERSES : </h4>
+             <h5 ><Strong>Info Drives: </Strong>{{journaliste.InfoDrives}}  </h5>
+  
+          </form>
+          </div>
+          <div class="col-sm-4">
+        
+            <form  class="form-group main-contact-form col-md-12 col-lg-12  wow fadeIn" id="form1">
+              <h4 class="text">COORDONNEES : </h4>
+              <h5><Strong>Adresse :</Strong>{{journaliste.Adresse}} </h5>
+             <h5><Strong> Direct : </Strong>{{journaliste.Direct}}</h5>
+             <h5> <Strong>Standard : </Strong>{{journaliste.Standard}} </h5>
+             <h5><Strong> Fax : </Strong>{{journaliste.Fax}}</h5>
+             <h5><Strong> Portable : </Strong>{{journaliste.Portable}}</h5>
+             <h5><Strong> Présence : </Strong>{{journaliste.Presence}} </h5>
+             <h5> <Strong>Domicile : </Strong>{{journaliste.Domicile}}</h5>
+             <h5><Strong> Mail : </Strong>{{journaliste.Mail}}</h5>
+             <h5><Strong>Réseaux: </Strong>{{journaliste.Reseaux}}:</h5> 
+            <h5> <Strong> Skype/Viber : </Strong>{{journaliste.SkypeViber}} </h5>
+            <h5> <Strong> Site : </Strong>{{journaliste.Site}} </h5>
+            <h4 class="text">CADEAUX : </h4>
+            <h5>{{journaliste.cadeaux}} </h5>
+           <h5> <Strong>Types : </Strong>{{journaliste.Types}} </h5>
+           <h5> <Strong>Occasion : </Strong>{{journaliste.Occasion}} </h5>
+                  <div>
+                   
+            
+            </div> 
+          </form>
+              </div>
+            </div>
+            </div>
+    
+    
+    
+  

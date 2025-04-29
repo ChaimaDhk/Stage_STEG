@@ -1,0 +1,36 @@
+<app-nav></app-nav>
+<div class="container-fluid">
+  <div class="row content">
+<div class="col-sm-3 sidenav">
+<app-nav-side></app-nav-side>
+</div>
+      <div class="col-sm-4" id="retombe">
+      
+        <form id="form1"  class="form-group main-contact-form col-md-12 col-lg-12  wow fadeIn" >
+          <h2 class="titre">AFFICHER RETOMBEE:<br> </h2>
+     
+         <h5><Strong> Période (Parution - Diffusion)  : </Strong>{{retombe.Periode}}</h5>
+          <h5><Strong> Date (Parution - Diffusion) : </Strong>{{retombe.Date}}</h5>
+          <h5> <Strong>Type-Média : </Strong>{{retombe.TypeMedia}}</h5>
+         <h5> <Strong>Média : </Strong>{{retombe.Media}}</h5>
+          <h5><Strong> Langue  : </Strong>{{retombe.Langue}}  </h5>
+         <h5>  <Strong>Titre  : </Strong>{{retombe.Titre}} </h5>
+         <h5> <Strong> Signature  : </Strong>{{retombe.Signature}}</h5>
+        <h5>  <Strong>Rédacteur/Animateur : </Strong> {{retombe.RedacteurAnimateur}} </h5>
+         <h5> <Strong> Thèmes traités  :  </Strong>{{retombe.Themes}}</h5>
+         <h5> <Strong> Unité concernée  : </Strong>{{retombe.Unit}} </h5>
+         <h5> <Strong> Tendance de la retombée   : </Strong>{{retombe.Tendance}} </h5>
+         <h5> <Strong> Lien URL ou PDF  : </Strong>{{retombe.Lien}} </h5>
+         <h5> <Strong> Suite à donner/Annotations de la DG   : </Strong>{{retombe.donnerAnnotations}} </h5>
+         <h5> <Strong> Travail à faire  : </Strong>{{retombe.Travail}} </h5>
+         <h5> <Strong>Lien de l’output   : </Strong>{{retombe.LienOutput}} </h5>
+          </form>
+          </div>
+          <div class="col-sm-4" >
+            <p class="mt30"><a  class="btn btn-primary btn-white page-scroll" (click)="DownloadPDF()" style="margin-right: 10%;margin-top: 60%; margin-left: 60%;">Télechager PDF</a></p>
+         </div>
+            </div>
+            </div>
+    
+    
+    

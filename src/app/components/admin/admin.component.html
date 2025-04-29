@@ -1,0 +1,43 @@
+<app-nav></app-nav>
+<div class="container-fluid">
+  <div class="row content">
+<div class="col-sm-3 sidenav">
+<app-nav-side></app-nav-side>
+</div>
+  <div class="col-md-7 col-md-offset-1"id="tableau">
+      <div class="button">
+        <form class="comment_form"id="message"
+        class="form-group main-contact-form col-md-12 col-lg-12  wow fadeIn" data-wow-delay="0.2s">
+     
+        <button type="button" class="btn btn-primary" routerLink="/ajouterAdmin">Ajouter</button>
+      </form>
+  </div>
+          <table class="table table-light" id="tableau1">
+             
+              <thead>
+                  <tr >
+                
+                      <th>Nom  prénom</th>
+                      <th>Prénom</th>
+                      <th>Email</th>
+                    
+                  </tr>
+              </thead>
+              <tbody >
+                <tr  *ngFor="let e of users">
+                    <td>{{e.Nom}}</td>
+                    <td>{{e.Prenom}}</td>
+                    <td>{{e.email}}</td>
+               
+                 
+                 
+                  </tr>
+                
+              </tbody>
+          </table>
+        
+</div> 
+    
+</div>
+</div>
+

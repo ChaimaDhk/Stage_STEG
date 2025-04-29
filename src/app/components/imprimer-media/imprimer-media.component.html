@@ -1,0 +1,52 @@
+<app-nav></app-nav>
+<div class="container-fluid">
+  <div class="row content">
+<div class="col-sm-3 sidenav">
+<app-nav-side></app-nav-side>
+</div>
+      <div class="col-sm-4" id="media">
+      
+        <form id="form1"  class="form-group main-contact-form col-md-12 col-lg-12  wow fadeIn">
+          <h2 class="titre">AFFICHER MEDIA:<br> </h2>
+          <h4 class="text">IDENIFICATION: </h4>
+         <h5><Strong> Média : </Strong>{{media.Media}}</h5>
+          <h5><Strong> Type-Media : </Strong>{{media.TypeMedia}}</h5>
+          <h5> <Strong>Neutralité : </Strong>{{media.Neutralite}}</h5>
+         <h5> <Strong>Diffusion  : </Strong>{{media.Diffusion}}</h5>
+          <h5><Strong> Fondation  : </Strong>{{media.Fondation}}  </h5>
+         <h5>  <Strong>Contenu  : </Strong>{{media.Contenu}} </h5>
+         <h5> <Strong> Spécialité  : </Strong>{{media.Specialite}}</h5>
+        
+              <h4 class="text">ÉQUIPE DE RÉDACTION: </h4>
+              <h5><Strong>Fondateur/Directeur : </Strong>{{media.Fondateur}}</h5>
+              <h5><Strong>Rédacteur en chef : </Strong>{{media.Redacteur}}</h5>
+              <h5><Strong>Assistant de rédaction  : </Strong>{{media.Assistant}}</h5>
+              <h5><Strong>Chef de rubrique Sport  : </Strong>{{media.ChefDeRubriqueSport}}</h5>
+              <h5><Strong>Chef de rubrique Économie  : </Strong>{{media.ChefDeRubriqueEconomie}}</h5>
+              <h5><Strong>Chef de rubrique Culture : </Strong>{{media.ChefDeRubriqueCulture}}</h5>
+              <h5><Strong>Chef de rubrique Nation  : </Strong>{{media.ChefDeRubriqueNation}}</h5>
+              <h5><Strong>Chef de rubrique International   : </Strong>{{media.ChefDeRubriqueInternational}}</h5>
+            
+
+
+              <h4 class="text">MARKETING & PUB : </h4>
+             <h5 ><Strong>Tirage : </Strong>{{media.Tirage}}  </h5>
+             <h5 ><Strong>Distribution : </Strong>{{media.Distribution}}  </h5>
+             <h5 ><Strong>Audience : </Strong>{{media.Audience}}  </h5>
+             <h5 ><Strong>Tarifs Publicitaires : </Strong>{{media.TarifsPublicitaires}}  </h5>
+             <h5 ><Strong>Contact : </Strong>{{media.Contact}}  </h5>
+             <h4 class="text">AUTRES INFOS  : </h4>
+             <h5 ><Strong>Autre : </Strong>{{media.Autre}}  </h5>
+  
+          </form>
+          </div>
+          <div class="col-sm-4">
+            <p class="mt30"><a  class="btn btn-primary btn-white page-scroll" (click)="DownloadPDF()" style="margin-right: 10%;margin-top: 60%; margin-left: 60%;">Télechager PDF</a></p>
+          
+              </div>
+            </div>
+            </div>
+    
+    
+    
+  

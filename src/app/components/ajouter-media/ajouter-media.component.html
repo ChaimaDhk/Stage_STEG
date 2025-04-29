@@ -1,0 +1,410 @@
+<app-nav></app-nav>
+<div class="container-fluid">
+  <div class="row content">
+<div class="col-sm-3 sidenav">
+<app-nav-side></app-nav-side>
+</div>
+      <div class="col-sm-4">
+       
+        <form class="form1" [formGroup]="mediaForm">
+           <h2 class="titre">AJOUTER MEDIA: <br> </h2>
+          <h4 class="text">IDENIFICATION: </h4>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Média   </label>
+            <input type="text" class="form-control" id="Media" aria-describedby="emailHelp" formControlName="Media" 
+            [ngClass]="{ 'is-invalid': submitted && f['Media'].errors }" [(ngModel)]="media.Media">
+            <div *ngIf="submitted && f['Media'].errors" class="invalid-feedback">
+              <div *ngIf="f['Media'].errors['required']"> Media is required</div>
+          </div>
+        </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Type Média</label>
+            <select class="form-control" formControlName="TypeMedia"
+             [ngClass]="{ 'is-invalid': submitted && f['TypeMedia'].errors }" [(ngModel)]="media.TypeMedia">
+             <option>Agence de Presse  </option>
+             <option>Quotidien  </option>
+             <option> Hebdomadaire  </option>
+             <option>Mensuel   </option>  
+             <option>Bimensuel  </option>
+             <option>Trimestriel   </option>
+             <option>Bimestriel   </option>
+             <option>Semestriel   </option>
+             <option>Annuel </option>
+             <option>Presse Électronique  </option>
+             <option>Web Radio  </option>
+             <option>Radio Locale  </option>
+             <option>Radio Communautaire </option>
+             <option>Web TV </option>
+             <option>TV </option>
+            </select>
+            <div *ngIf="submitted && f['TypeMedia'].errors" class="invalid-feedback">
+              <div *ngIf="f['TypeMedia'].errors['required']"> TypeMedia is required</div>
+          </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Neutralité </label>
+            <select class="form-control" formControlName="Neutralite"
+             [ngClass]="{ 'is-invalid': submitted && f['Neutralite'].errors }" [(ngModel)]="media.Neutralite">
+             <option>Presse Partisane  </option>
+             <option>Presse Indépendante  </option>
+            </select>
+            <div *ngIf="submitted && f['Neutralite'].errors" class="invalid-feedback">
+              <div *ngIf="f['Neutralite'].errors['required']"> Neutralite is required</div>
+          </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Diffusion </label>
+            <select class="form-control" formControlName="Diffusion"
+             [ngClass]="{ 'is-invalid': submitted && f['Diffusion'].errors }" [(ngModel)]="media.Diffusion">
+             <option>Nationale</option>
+             <option>Locale </option>
+             <option>Électronique </option>
+            </select>
+            <div *ngIf="submitted && f['Diffusion'].errors" class="invalid-feedback">
+              <div *ngIf="f['Diffusion'].errors['required']"> Diffusion is required</div>
+          </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Fondation  &nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <input type="date" name="Fondation" pattern="\d{4}-\d{2}-\d{2}" formControlName="Fondation" 
+    [ngClass]="{ 'is-invalid': submitted && f['Fondation'].errors }" [(ngModel)]="media.Fondation">
+    <div *ngIf="submitted && f['Fondation'].errors" class="invalid-feedback">
+      <div *ngIf="f['Fondation'].errors['required']"> Fondation is required</div>
+  </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Contenu </label>
+            <select class="form-control" formControlName="Contenu"
+             [ngClass]="{ 'is-invalid': submitted && f['Contenu'].errors }" [(ngModel)]="media.Contenu">
+             <option>Généraliste </option>
+             <option>Spécialisé </option>
+            </select>
+            <div *ngIf="submitted && f['Contenu'].errors" class="invalid-feedback">
+              <div *ngIf="f['Contenu'].errors['required']"> Contenu is required</div>
+          </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Spécialité </label>
+            <select class="form-control" formControlName="Specialite"
+             [ngClass]="{ 'is-invalid': submitted && f['Specialite'].errors }" [(ngModel)]="media.Specialite">
+             <option>Économie  </option>
+             <option>Politique  </option>
+             <option>Parlementaire   </option>
+             <option>Société   </option>
+               <option>Agriculture   </option> 
+                <option>Tourisme   </option>
+               <option>Industrie   </option>
+               <option>Santé   </option>
+               <option>Sport    </option>
+               <option>Culture    </option>
+               <option>Association    </option>
+               <option>Autres...   </option>
+            </select>
+            <div *ngIf="submitted && f['Specialite'].errors" class="invalid-feedback">
+              <div *ngIf="f['Specialite'].errors['required']"> Specialite is required</div>
+          </div>
+          </div>
+          <br>
+          <button type="button" (click)='filePicker.click()' class="comment_button trans_200" style="background-color:#222;color: rgb(252, 245, 245);">Sélectionner une 
+            photo de profil</button>
+        <div class="form-group">
+            <input style="visibility: hidden;" type="file" class="form-control" #filePicker 
+                (change)='onImageSelected($event)' [(ngModel)]="media.img" />
+        </div>
+        <img [src]="imagePreview" *ngIf="imagePreview" width="200px" height="200px" >
+
+              <h4 class="text">COORDONNEES : </h4>
+               
+              <div class="form-group">
+                <label for="exampleInputPassword1">Standard    </label>
+                <input type="text" class="form-control" id="Standard" aria-describedby="emailHelp" formControlName="Standard" 
+                [ngClass]="{ 'is-invalid': submitted && f['Standard'].errors }" [(ngModel)]="media.Standard"> 
+                  <div *ngIf="submitted && f['Standard'].errors" class="invalid-feedback">
+                            <div *ngIf="f['Standard'].errors['required']"> Standard is required</div>
+                        </div>
+       
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Fax    </label>
+                <input type="text" class="form-control" id="Fax" aria-describedby="emailHelp" formControlName="Fax" 
+                [ngClass]="{ 'is-invalid': submitted && f['Fax'].errors }" [(ngModel)]="media.Fax">  
+                 <div *ngIf="submitted && f['Fax'].errors" class="invalid-feedback">
+                            <div *ngIf="f['Fax'].errors['required']"> Fax is required</div>
+                        </div>
+       
+              </div>
+            
+              <div class="form-group">
+                <label for="exampleInputPassword1">Mail    </label>
+                <input type="email" class="form-control" id="Mail" aria-describedby="emailHelp" formControlName="Mail" 
+                [ngClass]="{ 'is-invalid': submitted && f['Mail'].errors }" [(ngModel)]="media.Mail">  
+                 <div *ngIf="submitted && f['Mail'].errors" class="invalid-feedback">
+                            <div *ngIf="f['Mail'].errors['required']"> Mail is required</div>
+                        </div>
+       
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Réseaux sociaux     </label>
+                <input type="text" class="form-control" id="Réseaux" aria-describedby="emailHelp" formControlName="Reseaux" 
+                [ngClass]="{ 'is-invalid': submitted && f['Reseaux'].errors }" [(ngModel)]="media.Reseaux"> 
+                  <div *ngIf="submitted && f['Reseaux'].errors" class="invalid-feedback">
+                            <div *ngIf="f['Reseaux'].errors['required']"> Reseaux is required</div>
+                        </div>
+       
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Adresse Bureau  </label>
+                <input type="text" class="form-control" id="Adresse" aria-describedby="emailHelp" formControlName="Adresse" 
+                [ngClass]="{ 'is-invalid': submitted && f['Adresse'].errors }" [(ngModel)]="media.Adresse">
+                <div *ngIf="submitted && f['Adresse'].errors" class="invalid-feedback">
+                  <div *ngIf="f['Adresse'].errors['required']"> Adresse is required</div>
+              </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Site web/Blog      </label>
+                <input type="text" class="form-control" id="Site" aria-describedby="emailHelp"formControlName="Site" 
+                [ngClass]="{ 'is-invalid': submitted && f['Site'].errors }" [(ngModel)]="media.Site"> 
+                  <div *ngIf="submitted && f['Site'].errors" class="invalid-feedback">
+                            <div *ngIf="f['Site'].errors['required']"> Site is required</div>
+                        </div>
+       
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Date & Heure de bouclage/tombée &nbsp;&nbsp; </label>
+        <input type="date" name="DateBouclage" pattern="\d{4}-\d{2}-\d{2}" formControlName="DateBouclage" 
+        [ngClass]="{ 'is-invalid': submitted && f['DateBouclage'].errors }" [(ngModel)]="media.DateBouclage">
+        <div *ngIf="submitted && f['DateBouclage'].errors" class="invalid-feedback">
+          <div *ngIf="f['DateBouclage'].errors['required']"> Date Bouclage is required</div>
+      </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Ondes de diffusion (Radio)      </label>
+                <input type="text" class="form-control" id="Ondes" aria-describedby="emailHelp"formControlName="Ondes" 
+                [ngClass]="{ 'is-invalid': submitted && f['Ondes'].errors }" [(ngModel)]="media.Ondes"> 
+                  <div *ngIf="submitted && f['Ondes'].errors" class="invalid-feedback">
+                            <div *ngIf="f['Ondes'].errors['required']"> Ondes is required</div>
+                        </div>
+       
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Zone de diffusion (Radio)      </label>
+                <input type="text" class="form-control" id="Zone" aria-describedby="emailHelp"formControlName="Zone" 
+                [ngClass]="{ 'is-invalid': submitted && f['Zone'].errors }" [(ngModel)]="media.Zone"> 
+                  <div *ngIf="submitted && f['Zone'].errors" class="invalid-feedback">
+                            <div *ngIf="f['Zone'].errors['required']"> Zone is required</div>
+                        </div>
+       
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Coordonnées Satellites (TV)      </label>
+                <input type="text" class="form-control" id="Coordonnees" aria-describedby="emailHelp"formControlName="Coordonnees" 
+                [ngClass]="{ 'is-invalid': submitted && f['Coordonnees'].errors }" [(ngModel)]="media.Coordonnees"> 
+                  <div *ngIf="submitted && f['Coordonnees'].errors" class="invalid-feedback">
+                            <div *ngIf="f['Coordonnees'].errors['required']"> Coordonnees is required</div>
+                        </div>
+       
+              </div>
+             
+    
+             
+          </form>
+          </div>
+          <div class="col-sm-4">
+        
+            <form class="form1" [formGroup]="mediaForm">
+             
+                <h4 class="text">MARKETING & PUB: </h4><br>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Tirage&nbsp;&nbsp;&nbsp;&nbsp;     </label>
+                  <input type="number" class="form-control" id="Tirage" aria-describedby="emailHelp"formControlName="Tirage" 
+                  [ngClass]="{ 'is-invalid': submitted && f['Tirage'].errors }" [(ngModel)]="media.Tirage"> 
+                    <div *ngIf="submitted && f['Tirage'].errors" class="invalid-feedback" min="0" max="1000">
+                              <div *ngIf="f['Tirage'].errors['required']"> Tirage is required</div>
+                          </div>
+         
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Distribution </label>
+                    <div>
+                       <input type="radio" class="form-check-input" id="Distribution" formControlName="Distribution" value="Agence de Presse"
+                       [ngClass]="{ 'is-invalid': submitted && f['Distribution'].errors }"  [(ngModel)]="media.Distribution">
+                       <div *ngIf="submitted && f['Distribution'].errors" class="invalid-feedback">
+                        <div *ngIf="f['Distribution'].errors['required']"> Distribution is required</div>
+                    </div>
+                  <label class="form-check-label" for="exampleCheck1">Nationale  &nbsp;&nbsp;</label>
+              
+                    <input type="radio" class="form-check-input" id="Distribution" formControlName="Distribution" value="Presse Écrite"
+                    [ngClass]="{ 'is-invalid': submitted && f['Distribution'].errors }" [(ngModel)]="media.Distribution">
+                    <div *ngIf="submitted && f['Distribution'].errors" class="invalid-feedback">
+                      <div *ngIf="f['Distribution'].errors['required']"> Distribution is required</div>
+                  </div>
+               <label class="form-check-label" for="exampleCheck1">Internationale  &nbsp;&nbsp;</label>
+            
+                <input type="radio" class="form-check-input" id="Distribution" formControlName="Distribution" value="Radio" 
+                [ngClass]="{ 'is-invalid': submitted && f['Distribution'].errors }" [(ngModel)]="media.Distribution">
+                <div *ngIf="submitted && f['Distribution'].errors" class="invalid-feedback">
+                  <div *ngIf="f['Distribution'].errors['required']"> Distribution is required</div>
+              </div>
+           <label class="form-check-label" for="exampleCheck1">Régionale&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+              
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Audience      </label>
+                <input type="text" class="form-control" id="Audience" aria-describedby="emailHelp"formControlName="Audience" 
+                [ngClass]="{ 'is-invalid': submitted && f['Audience'].errors }" [(ngModel)]="media.Audience"> 
+                  <div *ngIf="submitted && f['Audience'].errors" class="invalid-feedback">
+                            <div *ngIf="f['Audience'].errors['required']"> Audience is required</div>
+                        </div>
+       
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Tarifs Publicitaires      </label>
+                <input type="text" class="form-control" id="TarifsPublicitaires" aria-describedby="emailHelp"formControlName="TarifsPublicitaires" 
+                [ngClass]="{ 'is-invalid': submitted && f['TarifsPublicitaires'].errors }" [(ngModel)]="media.TarifsPublicitaires"> 
+                  <div *ngIf="submitted && f['TarifsPublicitaires'].errors" class="invalid-feedback">
+                            <div *ngIf="f['TarifsPublicitaires'].errors['required']"> TarifsPublicitaires is required</div>
+                        </div>
+       
+              </div>
+                
+              <div class="form-group">
+                <label for="exampleInputPassword1">Contact Pub      </label>
+                <input type="text" class="form-control" id="Contact" aria-describedby="emailHelp"formControlName="Contact" 
+                [ngClass]="{ 'is-invalid': submitted && f['Contact'].errors }" [(ngModel)]="media.Contact"> 
+                  <div *ngIf="submitted && f['Contact'].errors" class="invalid-feedback">
+                            <div *ngIf="f['Contact'].errors['required']"> Contact is required</div>
+                        </div>
+       
+              </div>
+
+                <br>
+                  <h4 class="text">ÉQUIPE DE RÉDACTION  : </h4>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Fondateur/Directeur      </label>
+                    <select class="form-control" formControlName="Fondateur"
+                    [ngClass]="{ 'is-invalid': submitted && f['Fondateur'].errors }" [(ngModel)]="media.Fondateur">
+                    <option value="0"></option>
+                      <option  *ngFor="let e of journaliste" >{{e.NomPrenom}}  </option>
+                   </select>
+                      <div *ngIf="submitted && f['Fondateur'].errors" class="invalid-feedback">
+                                <div *ngIf="f['Fondateur'].errors['required']"> Fondateur is required</div>
+                            </div>
+           
+                  </div>
+                 
+
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Rédacteur en chef       </label>
+                    <select class="form-control" formControlName="Redacteur"
+                    [ngClass]="{ 'is-invalid': submitted && f['Redacteur'].errors }" [(ngModel)]="media.Redacteur">
+                    <option value="0"></option>
+                     <option  *ngFor="let e of journaliste" >{{e.NomPrenom}}  </option>
+                   </select>
+                      <div *ngIf="submitted && f['Redacteur'].errors" class="invalid-feedback">
+                                <div *ngIf="f['Redacteur'].errors['required']"> Redacteur is required</div>
+                            </div>
+           
+                  </div>
+                 
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Assistant de rédaction      </label>
+                    <select class="form-control" formControlName="Assistant"
+                    [ngClass]="{ 'is-invalid': submitted && f['Assistant'].errors }" [(ngModel)]="media.Assistant">
+                    <option value="0"></option>
+                     <option  *ngFor="let e of journaliste" >{{e.NomPrenom}}  </option>
+                   </select>
+                      <div *ngIf="submitted && f['Assistant'].errors" class="invalid-feedback">
+                                <div *ngIf="f['Assistant'].errors['required']"> Assistant is required</div>
+                            </div>
+           
+                  </div>
+                 
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Chef de rubrique Sport      </label>
+                    <select class="form-control" formControlName="ChefDeRubriqueSport"
+                    [ngClass]="{ 'is-invalid': submitted && f['ChefDeRubriqueSport'].errors }" [(ngModel)]="media.ChefDeRubriqueSport">
+                    <option value="0"></option>
+                      <option  *ngFor="let e of journaliste" >{{e.NomPrenom}}  </option>
+                   </select>
+                      <div *ngIf="submitted && f['ChefDeRubriqueSport'].errors" class="invalid-feedback">
+                                <div *ngIf="f['ChefDeRubriqueSport'].errors['required']"> ChefDeRubriqueSport is required</div>
+                            </div>
+           
+                  </div>
+                
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Chef de rubrique Économie      </label>
+                    <select class="form-control" formControlName="ChefDeRubriqueEconomie"
+                    [ngClass]="{ 'is-invalid': submitted && f['ChefDeRubriqueEconomie'].errors }" [(ngModel)]="media.ChefDeRubriqueEconomie">
+                    <option value="0"></option>
+                     <option  *ngFor="let e of journaliste" >{{e.NomPrenom}}  </option>
+                   </select>
+                      <div *ngIf="submitted && f['ChefDeRubriqueEconomie'].errors" class="invalid-feedback">
+                                <div *ngIf="f['ChefDeRubriqueEconomie'].errors['required']"> ChefDeRubriqueEconomie is required</div>
+                            </div>
+           
+                  </div>
+                 
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Chef de rubrique Culture    </label>
+                    <select class="form-control" formControlName="ChefDeRubriqueCulture"
+                    [ngClass]="{ 'is-invalid': submitted && f['ChefDeRubriqueCulture'].errors }" [(ngModel)]="media.ChefDeRubriqueCulture">
+                    <option value="0"></option>
+                     <option  *ngFor="let e of journaliste" >{{e.NomPrenom}}  </option>
+                   </select> 
+                      <div *ngIf="submitted && f['ChefDeRubriqueCulture'].errors" class="invalid-feedback">
+                                <div *ngIf="f['ChefDeRubriqueCulture'].errors['required']"> ChefDeRubriqueCulture is required</div>
+                            </div>
+           
+                  </div>
+                 
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Chef de rubrique Nation      </label>
+                    <select class="form-control" formControlName="ChefDeRubriqueNation"
+                    [ngClass]="{ 'is-invalid': submitted && f['ChefDeRubriqueNation'].errors }" [(ngModel)]="media.ChefDeRubriqueNation">
+                    <option value="0"></option>
+                     <option  *ngFor="let e of journaliste" >{{e.NomPrenom}}  </option>
+                   </select> 
+                      <div *ngIf="submitted && f['ChefDeRubriqueNation'].errors" class="invalid-feedback">
+                                <div *ngIf="f['ChefDeRubriqueNation'].errors['required']"> ChefDeRubriqueNation is required</div>
+                            </div>
+           
+                  </div>
+                
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Chef de rubrique International       </label>
+                    <select class="form-control" formControlName="ChefDeRubriqueInternational"
+                    [ngClass]="{ 'is-invalid': submitted && f['ChefDeRubriqueInternational'].errors }" [(ngModel)]="media.ChefDeRubriqueInternational">
+                    <option value="0"></option>
+                      <option  *ngFor="let e of journaliste" >{{e.NomPrenom}}  </option>
+                   </select> 
+                      <div *ngIf="submitted && f['ChefDeRubriqueInternational'].errors" class="invalid-feedback">
+                                <div *ngIf="f['ChefDeRubriqueInternational'].errors['required']"> ChefDeRubriqueInternational is required</div>
+                            </div>
+           
+                  </div>
+                
+                
+              <h4 class="text">AUTRES INFOS  </h4>
+              <div class="form-group">
+               
+                <input type="text" class="form-control" id="Autre" aria-describedby="emailHelp"formControlName="Autre" 
+                [ngClass]="{ 'is-invalid': submitted && f['Autre'].errors }" [(ngModel)]="media.Autre"> 
+                  <div *ngIf="submitted && f['Autre'].errors" class="invalid-feedback">
+                            <div *ngIf="f['Autre'].errors['required']"> Autre is required</div>
+                        </div>
+       
+              </div>
+              <br> <br><br> <br><br> <br><br>
+              <input class="btn btn-primary btn-white mt30 pull-right" type="submit" name="submit"
+              value="{{titre2}}" (click)="addOrEditMedia(mediaForm.value)" id="button">
+             </form>
+              </div>
+    
+    
+    </div>
+  </div>
+  
+  
+  

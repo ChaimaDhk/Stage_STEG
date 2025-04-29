@@ -1,0 +1,35 @@
+
+<app-nav></app-nav>
+<div class="container-fluid">
+  <div class="row content">
+<div class="col-sm-3 sidenav">
+<app-nav-side></app-nav-side>
+</div>
+  <div class="col-md-7 col-md-offset-1"id="tableau">
+     
+          <table class="table table-light" id="tableau1">
+             
+              <thead>
+                  <tr>
+                      <th>Nom </th>
+                      <th >Prénom </th>
+                      <th>Email </th>
+             
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr  *ngFor="let e of users">
+                      <td>{{e.Nom}}</td>
+                      <td>{{e.Prenom}}</td>
+                      <td>{{e.email}}</td>
+                 
+                  </tr>
+                
+              </tbody>
+          </table>
+   
+</div> 
+    
+</div>
+</div>
+

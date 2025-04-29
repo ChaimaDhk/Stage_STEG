@@ -1,0 +1,55 @@
+
+<div class="col-sm-4"></div>
+<div class="col-sm-4">
+      
+    <form id="form1"  class="form-group main-contact-form col-md-12 col-lg-12  wow fadeIn" [formGroup]="UserForm">
+      <h2 class="titre">PROFIL<br> </h2>
+      <img [src]=user.img alt="" style="width: 30%;"><br>
+      <button type="button" (click)='filePicker.click()' class="comment_button trans_200" style="background-color:#222;color: rgb(252, 245, 245);">Sélectionner une nouvelle
+        photo de profil</button>
+    <div class="form-group">
+        <input style="visibility: hidden;" type="file" class="form-control" #filePicker 
+            (change)='onImageSelected($event)' [(ngModel)]="user.img" />
+    </div>
+    <img [src]="imagePreview" *ngIf="imagePreview" width="200px" height="200px" >
+      <div class="form-group">
+        <label for="exampleInputEmail1">Nom :  </label>
+        <input type="text" class="form-control" id="Nom"  formControlName="Nom"   style="font-size: 100%;" aria-describedby="emailHelp" [ngClass]="{ 'is-invalid': submitted && f['Nom'].errors }"
+        [(ngModel)]="user.Nom">
+        <div *ngIf="submitted && f['Nom'].errors" class="invalid-feedback">
+            <div *ngIf="f['Nom'].errors['required']"> Nom is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Prénom :  </label>
+        <input type="text" class="form-control"style="font-size: 100%;" id="Prenom" formControlName="Prenom" aria-describedby="emailHelp" 
+         [ngClass]="{ 'is-invalid': submitted && f['Prenom'].errors }"
+        [(ngModel)]="user.Prenom">
+        <div *ngIf="submitted && f['Prenom'].errors" class="invalid-feedback">
+            <div *ngIf="f['Prenom'].errors['required']"> Prenom is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email :  </label>
+        <input type="text" class="form-control" style="font-size: 100%;" id="email"  formControlName="email"  aria-describedby="emailHelp" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+        [(ngModel)]="user.email">
+        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+            <div *ngIf="f['email'].errors['required']"> email is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Mot de passe :  </label>
+        <input type="password" style="font-size: 100%;" class="form-control" id="password"  formControlName="password"  aria-describedby="emailHelp"  [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+        [(ngModel)]="user.password" readonly="readonly">
+      
+      </div>
+      <p class="mt30"><a  class="btn btn-primary btn-white page-scroll" id="button"(click)="edit(UserForm.value)" >Modifier mes données</a>&nbsp;&nbsp;&nbsp;&nbsp; 
+        <a  class="btn btn-primary btn-white page-scroll"id="button"  (click)="changer()" >Changer mot de passe</a>&nbsp;&nbsp;&nbsp;&nbsp; 
+       <a  class="btn btn-primary btn-white page-scroll"id="button" (click)="deconnecter()" >Déconnecté</a></p>
+      </form>
+   
+      </div>
+      <div class="col-sm-4">
+    
+      
+          </div>

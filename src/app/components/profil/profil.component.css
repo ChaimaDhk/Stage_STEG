@@ -1,0 +1,22 @@
+
+#form1{
+    margin-top: 100px;
+    margin-bottom: 170px;
+    font-size:150%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  .text{
+    color: #0a6ccd ;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+   .titre{
+    margin-top: -50px;
+    font-size: 200%;
+    margin-left: 50%;
+    color: #cc4c33 ;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  #button{
+    font-size: 100%;
+    
+  }

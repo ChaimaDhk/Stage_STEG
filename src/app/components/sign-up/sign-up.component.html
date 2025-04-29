@@ -1,0 +1,67 @@
+<head>
+ 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  </head>
+
+  <div class="col-md-4"> </div>
+<div class="col-md-4">
+    <form class="formulaire" [formGroup]="UserForm">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Nom </label>
+            <input type="text" class="form-control"  placeholder="Enter nom"  formControlName="Nom" 
+            [ngClass]="{ 'is-invalid': submitted && f['Nom'].errors }">
+            <div *ngIf="submitted && f['Nom'].errors" class="invalid-feedback">
+                <div *ngIf="f['Nom'].errors['required']"> Nom is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Prénom </label>
+            <input type="text" class="form-control"  placeholder="Enter prenom"  placeholder="Enter Prenom"  formControlName="Prenom" 
+            [ngClass]="{ 'is-invalid': submitted && f['Prenom'].errors }">
+            <div *ngIf="submitted && f['Prenom'].errors" class="invalid-feedback">
+                <div *ngIf="f['Prenom'].errors['required']"> prenom is required</div>
+            </div>
+          </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email </label>
+      <input type="email" class="form-control"  placeholder="Enter email" formControlName="email" 
+      [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" >
+      <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+        <div *ngIf="f['email'].errors['required']"> email is required</div>
+    </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Mot de passe</label>
+      <input type="password" class="form-control"  placeholder="Password" formControlName="password" 
+      [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
+      <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+        <div *ngIf="f['password'].errors['required']"> password is required</div>
+    </div>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Confirmer mot de passe</label>
+        <input type="password" class="form-control"  placeholder="Password" formControlName="confirm" 
+        [ngClass]="{ 'is-invalid': submitted && f['confirm'].errors }" >
+        <div *ngIf="submitted && f['confirm'].errors" class="invalid-feedback">
+            <div *ngIf="f['confirm'].errors['required']"> vérifier </div>
+        </div>
+      </div>
+    <br>
+                            <button type="button" (click)='filePicker.click()' class="comment_button trans_200" style="background-color:#222;color: rgb(252, 245, 245);">Sélectionner
+                                image</button>
+                            <div class="form-group">
+                                <input style="visibility: hidden;" type="file" class="form-control" #filePicker
+                                    (change)='onImageSelected($event)' />
+                            </div>
+                            <img [src]="imagePreview" *ngIf="imagePreview" width="200px" height="200px" >
+    <div>
+    <button type="submit" class="btn btn-primary" (click)="sign(UserForm.value)" >Sign</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="submit" class="btn btn-primary">Annuler</button>
+</div>
+  </form>
+</div>

@@ -1,0 +1,192 @@
+<app-nav></app-nav>
+<div class="container-fluid">
+  <div class="row content">
+<div class="col-sm-3 sidenav">
+<app-nav-side></app-nav-side>
+</div> 
+      <div class="col-sm-3"></div>
+      <div class="col-sm-3">
+       
+        <form class="form1" [formGroup]="retombeForm" >
+           <h2 class="titre">{{title}} UN RETOMBEE: <br> <br></h2>
+              <div class="form-group">
+            <label for="exampleFormControlSelect1">Période (Parution - Diffusion) </label>
+            <select class="form-control" formControlName="Periode"
+             [ngClass]="{ 'is-invalid': submitted && f['Periode'].errors }" [(ngModel)]="retombe.Periode" >
+             <option>janvier  </option>
+             <option>Février  </option>
+             <option> Mars  </option>
+             <option>Avril   </option>  
+             <option>Mai  </option>
+             <option>Juin   </option>
+             <option>Juillet   </option>
+             <option> Août   </option>
+             <option> Septembre </option>
+             <option>Octobre  </option>
+             <option> Novembre  </option>
+             <option> Décembre </option>
+           
+            </select>
+            <div *ngIf="submitted && f['Periode'].errors" class="invalid-feedback">
+              <div *ngIf="f['Periode'].errors['required']"> Periode is required</div>
+          </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Date (Parution - Diffusion)  &nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input type="date" name="Date" pattern="\d{4}-\d{2}-\d{2}" formControlName="Date" 
+        [ngClass]="{ 'is-invalid': submitted && f['Date'].errors }" [(ngModel)]="retombe.Date">
+        <div *ngIf="submitted && f['Date'].errors" class="invalid-feedback">
+          <div *ngIf="f['Date'].errors['required']"> Date is required</div>
+      </div>
+              </div>
+             
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Type Média </label>
+                <select class="form-control" formControlName="TypeMedia"
+                 [ngClass]="{ 'is-invalid': submitted && f['TypeMedia'].errors }" [(ngModel)]="retombe.TypeMedia">
+                 <option>Agence de presse  </option>
+                 <option>Presse écrite  </option>
+                 <option>Radio  </option>
+                 <option>TV   </option>
+                 <option>Presse Électronique  </option>
+               
+                </select>
+                <div *ngIf="submitted && f['TypeMedia'].errors" class="invalid-feedback">
+                  <div *ngIf="f['TypeMedia'].errors['required']"> TypeMedia is required</div>
+              </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Média   </label>
+                <select class="form-control" formControlName="Media"
+                [ngClass]="{ 'is-invalid': submitted && f['Media'].errors }" [(ngModel)]="retombe.Media">
+                <option value="0">  </option>
+                <option  *ngFor="let e of media">{{e.Media}}   </option>
+               </select>
+                <div *ngIf="submitted && f['Media'].errors" class="invalid-feedback">
+                  <div *ngIf="f['Media'].errors['required']"> Media is required</div>
+              </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Langue </label>
+                <select class="form-control" formControlName="Langue"
+                 [ngClass]="{ 'is-invalid': submitted && f['Langue'].errors }" [(ngModel)]="retombe.Langue">
+                 <option>Arabe   </option>
+                 <option>Français   </option>
+                 <option>Anglais  </option>
+               
+                </select>
+                <div *ngIf="submitted && f['Langue'].errors" class="invalid-feedback">
+                  <div *ngIf="f['Langue'].errors['required']"> Langue is required</div>
+              </div>
+              </div> 
+              <div class="form-group">
+                <label for="exampleInputEmail1">Titre   </label>
+                <input type="text" class="form-control" id="Titre" aria-describedby="emailHelp" formControlName="Titre" 
+                [ngClass]="{ 'is-invalid': submitted && f['Titre'].errors }" [(ngModel)]="retombe.Titre">
+                <div *ngIf="submitted && f['Titre'].errors" class="invalid-feedback">
+                  <div *ngIf="f['Titre'].errors['required']"> Titre is required</div>
+              </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Signature </label>
+                <select class="form-control" formControlName="Signature"
+                 [ngClass]="{ 'is-invalid': submitted && f['Signature'].errors }" [(ngModel)]="retombe.Signature">
+                 <option>Signé    </option>
+                 <option>Anonyme   </option>
+               
+                </select>
+                <div *ngIf="submitted && f['Langue'].errors" class="invalid-feedback">
+                  <div *ngIf="f['Langue'].errors['required']"> Signature is required</div>
+              </div>
+              </div> 
+              <div class="form-group">
+                <label for="exampleInputEmail1">Rédacteur/Animateur    </label>
+                <input type="text" class="form-control" id="RedacteurAnimateur" aria-describedby="emailHelp" formControlName="RedacteurAnimateur" 
+                [ngClass]="{ 'is-invalid': submitted && f['RedacteurAnimateur'].errors }" [(ngModel)]="retombe.RedacteurAnimateur">
+                <div *ngIf="submitted && f['RedacteurAnimateur'].errors" class="invalid-feedback">
+                  <div *ngIf="f['RedacteurAnimateur'].errors['required']"> Rédacteur/Animateur  is required</div>
+              </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Thèmes traités    </label>
+                <input type="text" class="form-control" id="Themes" aria-describedby="emailHelp" formControlName="Themes" 
+                [ngClass]="{ 'is-invalid': submitted && f['Themes'].errors }" [(ngModel)]="retombe.Themes">
+                <div *ngIf="submitted && f['Themes'].errors" class="invalid-feedback">
+                  <div *ngIf="f['Themes'].errors['required']"> Themes  is required</div>
+              </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Unité concernée     </label>
+                <input type="text" class="form-control" id="Unit" aria-describedby="emailHelp" formControlName="Unit" 
+                [ngClass]="{ 'is-invalid': submitted && f['Unit'].errors }" [(ngModel)]="retombe.Unit">
+                <div *ngIf="submitted && f['Unit'].errors" class="invalid-feedback">
+                  <div *ngIf="f['Unit'].errors['required']"> Unit  is required</div>
+              </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Tendance de la retombée </label>
+                <select class="form-control" formControlName="Tendance"
+                 [ngClass]="{ 'is-invalid': submitted && f['Tendance'].errors }" [(ngModel)]="retombe.Tendance">
+                 <option>Très Négative     </option>
+                 <option>Négative    </option>
+                 <option>Neutre     </option>
+                 <option>Positive     </option>
+                 <option>Très Positive     </option>
+                </select>
+                <div *ngIf="submitted && f['Tendance'].errors" class="invalid-feedback">
+                  <div *ngIf="f['Tendance'].errors['required']"> Tendance is required</div>
+              </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Lien URL ou PDF    </label>
+                <input type="text" class="form-control" id="Lien" aria-describedby="emailHelp" formControlName="Lien" 
+                [ngClass]="{ 'is-invalid': submitted && f['Lien'].errors }" [(ngModel)]="retombe.Lien">
+                <div *ngIf="submitted && f['Lien'].errors" class="invalid-feedback">
+                  <div *ngIf="f['Lien'].errors['required']"> Lien  is required</div>
+              </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Suite à donner/Annotations de la DG    </label>
+                <input type="text" class="form-control" id="donnerAnnotations" aria-describedby="emailHelp" formControlName="donnerAnnotations" 
+                [ngClass]="{ 'is-invalid': submitted && f['donnerAnnotations'].errors }" [(ngModel)]="retombe.donnerAnnotations">
+                <div *ngIf="submitted && f['donnerAnnotations'].errors" class="invalid-feedback">
+                  <div *ngIf="f['donnerAnnotations'].errors['required']"> donner Annotations  is required</div>
+              </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Travail à faire</label>
+                <select class="form-control" formControlName="Travail"
+                 [ngClass]="{ 'is-invalid': submitted && f['Travail'].errors }" [(ngModel)]="retombe.Travail">
+                 <option>RAS   </option>
+                 <option>Réponse    </option>
+                 <option>Contact Téléphonique     </option>
+                 <option>Interview     </option>
+                </select>
+                <div *ngIf="submitted && f['Travail'].errors" class="invalid-feedback">
+                  <div *ngIf="f['Travail'].errors['required']"> Travail is required</div>
+              </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Lien de l’output   </label>
+                <input type="text" class="form-control" id="LienOutput" aria-describedby="emailHelp" formControlName="LienOutput" 
+                [ngClass]="{ 'is-invalid': submitted && f['LienOutput'].errors }" [(ngModel)]="retombe.LienOutput">
+                <div *ngIf="submitted && f['LienOutput'].errors" class="invalid-feedback">
+                  <div *ngIf="f['LienOutput'].errors['required']"> Lien Output  is required</div>
+              </div>
+              </div>
+          
+            <div>
+              <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="btn btn-primary btn-white mt30 pull-right" type="submit" name="submit"
+            value="{{titre2}}" (click)="addOrEditretombe(retombeForm.value)" id="button">
+            
+      </div> 
+
+             
+          </form>
+          </div>
+         
+    
+    </div>
+  </div>
+  
